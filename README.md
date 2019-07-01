@@ -1,8 +1,10 @@
 # Croco1
 
+This is written in python 3. It requires appropriate python and PyLab.
+
 Preparation:
 1. Download all the files and put int one folder.
-2. Organize path
+2. Organize path in each file
 
 Plotting figures:
 Fig. 2
