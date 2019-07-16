@@ -21,7 +21,8 @@ Fig. 6
 2. run c107 02 00
 
 Fig. 7
-run c104 31 05
+1. run c104 22 06
+2. run c104 31 06
 
 Fig. S2
 run c103 21 03
