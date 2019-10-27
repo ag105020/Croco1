@@ -14,6 +14,7 @@ from Labdata02 import *
 from cf002_energy_calculation_n2 import *
 from cf003_energy_calculation_nh4 import *
 from Savefig2 import Savefig2
+from Savetxt2 import st
 
 #font setting as always
 # rc('text', usetex=True)
@@ -860,7 +861,31 @@ def croco(data):
         title('Cell Fe')
         xlim([0,24*Days])
         xticks(arange(0,24*Days+1,2*Days))
-    
+
+    #Adding block for save----------------------    
+    n = '02'
+    if Datanumber==1:  #5% O2 GroBkopf 2012
+        o2 = '05'
+        st(PC2H4/C2H4Nratio,n+'N2fix'+o2)
+        st(CPo2,n+'Pho'+o2)
+        st(Cres,n+'Res'+o2)
+        st(fmolC,n+'C'+o2)
+        st(fmolN,n+'N'+o2)
+        st(MolarCN,n+'CN'+o2)
+        st(O2c_v,n+'_O2_'+o2)
+    if Datanumber==2:  #20% O2 GroBkopf 2012
+        o2 = '20'
+        st(PC2H4/C2H4Nratio,n+'N2fix'+o2)
+        st(CPo2,n+'Pho'+o2)
+        st(Cres,n+'Res'+o2)
+        st(fmolC,n+'C'+o2)
+        st(fmolN,n+'N'+o2)
+        st(MolarCN,n+'CN'+o2)
+        st(O2c_v,n+'_O2_'+o2)
+    if Datanumber==4:  #Saito 2011
+        st(NFebuffer/4.87e4,n+'FeBuffer')
+        st(NFepho/4.87e4,n+'FePho')
+        st(NFenitrogenase/4.87e4,n+'FeNitroge')
     return
 #done for crocosphaera t00function
 #############################################################################

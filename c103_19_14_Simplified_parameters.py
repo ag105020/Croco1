@@ -14,6 +14,7 @@ from Labdata02 import *
 from cf002_energy_calculation_n2 import *
 from cf003_energy_calculation_nh4 import *
 from Savefig2 import Savefig2
+from Savetxt2 import st
 
 ###############################################################################
 def croco(data):
@@ -695,9 +696,11 @@ def croco(data):
         figure(1)
         if Datanumber==1:
             plot(Th,PC2H4/C2H4Nratio,color=color05)
+            st(PC2H4/C2H4Nratio,'00N2fix05')
             dp05('N2fix05all')
         if Datanumber==2:
             plot(Th,PC2H4/C2H4Nratio,color=color20)
+            st(PC2H4/C2H4Nratio,'00N2fix20')
             dp20('N2fix20all')
         xlabel(Xlabel)
         ylabel('N$_{2}$fix (fmolN cell$^{-1}$ h$^{-1}$)')
@@ -705,6 +708,7 @@ def croco(data):
         xticks(arange(0,24*Days+1,2*Days))
         if Datanumber==2:
             Savefig2(savefolder,1,dpi)
+        
     
     if (Datanumber==1) or (Datanumber==2):
         figure(2)
@@ -728,14 +732,19 @@ def croco(data):
         
         if Datanumber==1:
             plot(Th,CPo2,color=color051)
+            st(CPo2,'00Pho05')
             dp051('O2fluxPho05all')
             plot(Th,Cres,color=color05)
+            st(Cres,'00Res05')
             dp05('O2fluxRes05all')
         if Datanumber==2:
             plot(Th,CPo2,color=color201)
+            st(CPo2,'00Pho20')
             dp201('O2fluxPho20all')
             plot(Th,Cres,color=color20)
+            st(Cres,'00Res20')
             dp20('O2fluxRes20all')
+            
         xlabel(Xlabel)
         ylabel('O$_2$ flux (fmol O$_2$ cell$^{-1}$ h$^{-1}$)')
       #  title('Respiration')
@@ -749,9 +758,11 @@ def croco(data):
        
         if Datanumber==1:
             plot(Th,fmolC,color=color05)
+            st(fmolC,'00C05')
             dp05('Ccell05all')
         if Datanumber==2:
             plot(Th,fmolC,color=color20)
+            st(fmolC,'00C20')
             dp20('Ccell20all')
         xlabel(Xlabel)
         ylabel('C per cell (fmol C cell$^{-1}$)')
@@ -767,9 +778,11 @@ def croco(data):
         if Datanumber==1:
             
             plot(Th,fmolN,color=color05)
+            st(fmolN,'00N05')
             dp05('Ncell05all')
         if Datanumber==2:  
             plot(Th,fmolN,color=color20)  
+            st(fmolN,'00N20')
             dp20('Ncell20all')
         xlabel(Xlabel)
         ylabel('N per cell (fmol N cell$^{-1}$)')
@@ -784,9 +797,11 @@ def croco(data):
         
         if Datanumber==1:
             plot(Th,MolarCN,color=color05)
+            st(MolarCN,'00CN05')
             dp05('CNcell05all')
         if Datanumber==2:  
             plot(Th,MolarCN,color=color20)
+            st(MolarCN,'00CN20')
             dp20('CNcell20all')
         xlabel(Xlabel)
         ylabel('Molar C:N ratio (molC molN$^{-1}$)')
@@ -799,8 +814,10 @@ def croco(data):
         figure(7)
         if Datanumber==1:
             plot(Th,O2c_v,color=color05)
+            st(O2c_v,'00_O2_05')
         if Datanumber==2:
             plot(Th,O2c_v,color=color20)
+            st(O2c_v,'00_O2_20')
         xlabel(Xlabel)
         ylabel('O$_2$ cell (molO$_2$ m$^{-3}$)')
         xlim([0,24*Days+xedge])
@@ -860,6 +877,10 @@ def croco(data):
         StackPlotColors=('#00FF00','#FF0000','#000000')
         figure(8)
         stackplot(Th,NFebuffer/4.87e4,NFepho/4.87e4,NFenitrogenase/4.87e4,colors=StackPlotColors)
+        st(NFebuffer/4.87e4,'00FeBuffer')
+        st(NFepho/4.87e4,'00FePho')
+        st(NFenitrogenase/4.87e4,'00FeNitroge')
+        print(NFebuffer+NFepho+NFenitrogenase)
         plot(data.Saito2011FigS4TNitrogenasePSIpercent,data.Saito2011FigS4NitrogenasePSIpercent,'o',color='#FFFFFF')
         plot(data.Saito2011FigS4TPSIbufferpercent,data.Saito2011FigS4PSIbufferpercent,'o',color='yellow')
         ticklabel_format(style='sci', axis='y', scilimits=(0,0))
