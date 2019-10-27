@@ -296,6 +296,8 @@ def croco(data):
         cy_v[0]=18333/5/2/2*1/4     #(molN m-3) original cyanophysin concentration (per volume)
     if Datanumber==3:
         cy_v[0]=18333/5/2/2*1/4     #(molN m-3) original cyanophysin concentration (per volume)
+    if Datanumber==4:
+        cy_v[0]=18333/5/2/2*1/4     #(molN m-3) original cyanophysin concentration (per volume)
     chl_v[0]=Chlmin/V    #(molCchl m-3) original chlorophyll concentration (per volume)
 
     #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
